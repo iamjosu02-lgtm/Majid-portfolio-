@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | Majid Mohamed</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root{
+
+            --orange:#ff6b00;
+
+            --skyblue:#00bfff;
+
+            --white:#ffffff;
+        }
+
+
+        *{
+
+            margin:0;
+
+            padding:0;
+
+            box-sizing:border-box;
+
+            font-family:'Poppins', sans-serif;
+        }
+
+
+        body{
+
+            color:white;
+
+            background:black;
+
+            overflow-x:hidden;
+        }
+
+
+        /* VIDEO BACKGROUND */
+
+        .video-container{
+
+            position:fixed;
+
+            top:0;
+            left:0;
+
+            width:100%;
+
+            height:100%;
+
+            overflow:hidden;
+
+            z-index:-5;
+        }
+
+
+        video{
+
+            width:100%;
+
+            height:100%;
+
+            object-fit:cover;
+        }
+
+
+        /* MAIN OVERLAY */
+
+        .overlay{
+
+            position:fixed;
+
+            top:0;
+            left:0;
+
+            width:100%;
+
+            height:100%;
+
+            background:
+            linear-gradient(
+                135deg,
+                rgba(255,107,0,0.45),
+                rgba(0,191,255,0.35),
+                rgba(0,0,0,0.50)
+            );
+
+            z-index:-4;
+        }
+
+
+        /* ORANGE GLOW */
+
+        .orange-glow{
+
+            position:fixed;
+
+            width:650px;
+
+            height:650px;
+
+            background:
+            radial-gradient(
+                circle,
+                rgba(255,107,0,0.45),
+                transparent 70%
+            );
+
+            top:-180px;
+
+            left:-120px;
+
+            filter:blur(70px);
+
+            z-index:-3;
+        }
+
+
+        /* BLUE GLOW */
+
+        .blue-glow{
+
+            position:fixed;
+
+            width:700px;
+
+            height:700px;
+
+            background:
+            radial-gradient(
+                circle,
+                rgba(0,191,255,0.40),
+                transparent 70%
+            );
+
+            bottom:-200px;
+
+            right:-120px;
+
+            filter:blur(80px);
+
+            z-index:-3;
+        }
+
+
+        /* NAVBAR */
+
+        nav{
+
+            position:fixed;
+
+            top:0;
+
+            width:100%;
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            padding:22px 7%;
+
+            z-index:1000;
+
+            backdrop-filter:blur(12px);
+
+            background:rgba(255,255,255,0.05);
+
+            border-bottom:
+            1px solid rgba(255,255,255,0.12);
+        }
+
+
+        .logo{
+
+            font-size:50px;
+
+            font-weight:800;
+
+            color:white;
+
+            text-shadow:
+            0 0 20px rgba(255,255,255,0.4);
+        }
+
+
+        /* BUTTON */
+
+        .back-btn{
+
+            padding:14px 28px;
+
+            border:none;
+
+            border-radius:50px;
+
+            background:white;
+
+            color:var(--orange);
+
+            font-size:15px;
+
+            font-weight:600;
+
+            cursor:pointer;
+
+            transition:0.45s ease;
+
+            box-shadow:
+            0 8px 25px rgba(0,0,0,0.25);
+        }
+
+
+        .back-btn:hover{
+
+            background:var(--skyblue);
+
+            color:white;
+
+            transform:
+            rotate(-5deg)
+            scale(1.08);
+
+            box-shadow:
+            0 0 25px rgba(0,191,255,0.7);
+        }
+
+
+        /* SECTION */
+
+        .projects-section{
+
+            width:100%;
+
+            min-height:100vh;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            padding:
+            140px 20px 60px;
+        }
+
+
+        /* GLASS CONTAINER */
+
+        .projects-container{
+
+            width:100%;
+
+            max-width:1100px;
+
+            background:
+            rgba(255,255,255,0.08);
+
+            border:
+            1px solid rgba(255,255,255,0.18);
+
+            backdrop-filter:blur(20px);
+
+            border-radius:35px;
+
+            padding:55px;
+
+            box-shadow:
+            0 15px 45px rgba(0,0,0,0.45);
+
+            animation:
+            floatBox 4s ease-in-out infinite,
+            fadeUp 1.4s ease;
+        }
+
+
+        /* FLOATING */
+
+        @keyframes floatBox{
+
+            0%{
+
+                transform:translateY(0px);
+            }
+
+            50%{
+
+                transform:translateY(-12px);
+            }
+
+            100%{
+
+                transform:translateY(0px);
+            }
+        }
+
+
+        /* FADE */
+
+        @keyframes fadeUp{
+
+            from{
+
+                opacity:0;
+
+                transform:translateY(80px);
+            }
+
+            to{
+
+                opacity:1;
+
+                transform:translateY(0);
+            }
+        }
+
+
+        /* TITLE */
+
+        .projects-title{
+
+            text-align:center;
+
+            font-size:68px;
+
+            margin-bottom:50px;
+
+            color:white;
+
+            text-shadow:
+            0 8px 25px rgba(0,0,0,0.45);
+        }
+
+
+        /* CARDS */
+
+        .project-card{
+
+            background:
+            rgba(255,255,255,0.10);
+
+            border-left:
+            6px solid var(--orange);
+
+            padding:35px;
+
+            border-radius:24px;
+
+            margin-bottom:32px;
+
+            transition:0.45s ease;
+
+            box-shadow:
+            0 10px 30px rgba(0,0,0,0.25);
+        }
+
+
+        .project-card:hover{
+
+            transform:
+            translateY(-10px)
+            scale(1.02);
+
+            background:
+            rgba(255,255,255,0.16);
+
+            border-left:
+            6px solid var(--skyblue);
+
+            box-shadow:
+            0 0 30px rgba(0,191,255,0.35);
+        }
+
+
+        .project-card h2{
+
+            font-size:34px;
+
+            margin-bottom:18px;
+
+            color:white;
+        }
+
+
+        .project-card p{
+
+            font-size:19px;
+
+            line-height:1.9;
+
+            color:rgba(255,255,255,0.94);
+        }
+
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px){
+
+            .projects-title{
+
+                font-size:48px;
+            }
+
+            .project-card h2{
+
+                font-size:28px;
+            }
+
+            .project-card p{
+
+                font-size:17px;
+            }
+
+            .projects-container{
+
+                padding:35px;
+            }
+
+        }
+
+
+        @media(max-width:600px){
+
+            .projects-title{
+
+                font-size:34px;
+            }
+
+            .project-card{
+
+                padding:22px;
+            }
+
+            .back-btn{
+
+                padding:12px 18px;
+
+                font-size:13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <!-- VIDEO BACKGROUND -->
+
+    <div class="video-container">
+
+        <video autoplay muted loop playsinline>
+
+            <source src="wall4.mp4" type="video/mp4">
+
+        </video>
+
+    </div>
+
+
+
+    <!-- OVERLAYS -->
+
+    <div class="overlay"></div>
+
+    <div class="orange-glow"></div>
+
+    <div class="blue-glow"></div>
+
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+
+            M
+
+        </div>
+
+
+        <a href="index.html">
+
+            <button class="back-btn">
+
+                Back Home
+
+            </button>
+
+        </a>
+
+    </nav>
+
+
+
+    <!-- PROJECTS SECTION -->
+
+    <section class="projects-section">
+
+        <div class="projects-container">
+
+
+            <h1 class="projects-title">
+
+                Projects
+
+            </h1>
+
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <h2>
+
+                    Football Analytics
+
+                </h2>
+
+
+                <p>
+
+                    Comprehensive football match analysis and player
+                    performance insights using advanced data science,
+                    statistical modeling, visualizations and AI-driven
+                    techniques to improve tactical decision making.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <h2>
+
+                    Machine Learning for Ad Fraud Detection
+
+                </h2>
+
+
+                <p>
+
+                    A powerful machine learning system designed to detect
+                    fraudulent advertisements in real-time using predictive
+                    analytics, anomaly detection and intelligent AI models.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project-card">
+
+                <h2>
+
+                    Deepfake Detection
+
+                </h2>
+
+
+                <p>
+
+                    Advanced deep learning model using CNN and LSTM
+                    architectures to detect manipulated videos and images.
+                    The system improves digital security by identifying
+                    fake media content and reducing misinformation online.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
